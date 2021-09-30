@@ -25,8 +25,11 @@ const responseMessage = {
     "Score": 63 };
 //Bereich auskommentieeren stg + k und dann c -> einkommentiern (zeile wieder): stg + k + u;
 document.getElementsByTagName("button")[0].addEventListener("click", function(){
-    // const colorInput = document.getElementById("color");
-    // const numberInput = document.getElementById("number");
+    //  const colorInput = document.getElementById("color");
+    //  const numberInput = document.getElementById("number");
+    //  const li = document.createElement("li");
+    //  const img = document.createElement("img");
+     
     const response = getCards();
     const ul = document.querySelector("#cards ul");
     response.Cards.map(function(el){
@@ -35,16 +38,31 @@ document.getElementsByTagName("button")[0].addEventListener("click", function(){
         //const card = makeCardFromInput(colorInput.value, numberInput.value);
         const card = `${el.Color.slice(0,1).toLowerCase()}${convertNumber(el.Value)}`;
         img.src = `${baseUrl}${card}.png`;
-        //img.src = `${baseUrl}$colorInput.value.slice(0,1).toLowercase()}${Number(numberInput.value)}.png`;
         li.appendChild(img);
         ul.appendChild(li);
     })
-  
-
-    //document.querySelector("#cards ul").appendChild(li);
+    
+    
+    // img.src = `${baseUrl}$colorInput.value.slice(0,1).toLowercase()}${Number(numberInput.value)}.png`;
+    // li.appendChild(img);
+    // document.querySelector("#cards ul").appendChild(li);
     //slice(0.1).towLowercase auch möglich
 });
-
+document.getElementsByTagName("button")[1].addEventListener("click", function(){
+    const last = document.querySelector("#cards ul").lastChild;
+    const ul = document.querySelector("#cards ul");
+    ul.removeChild(last);
+});
+document.getElementsByTagName("button")[2].addEventListener("click", function(){
+    const ul = document.querySelector("#cards ul");
+    const color = document.getElementById("color");
+    const number = document.getElementById("number");
+    const deleteCard =`${color.value.slice(0,1).toLowerCase()}${Number(number.value)}` 
+    if(deleteCard == ul.childNodes.value){
+        ul.removeChild(deleteCard);
+    }
+    //ul.removeChild(last);
+});
 /*
 function makeCardFromInput(color, number){
     let result;
