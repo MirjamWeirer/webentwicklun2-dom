@@ -8,6 +8,7 @@ const baseUrlCards = "http://nowaunoweb.azurewebsites.net/Cards/"
 //     const number = document.getElementById("number");
 //     alert(`Farbe: ${color.value}, Number: ${number.value}`);
 // });
+
 const responseMessage = { 
     "Player": "Player 1", 
     "Cards": [ 
@@ -34,15 +35,17 @@ document.getElementsByTagName("button")[0].addEventListener("click", function(){
         //const card = makeCardFromInput(colorInput.value, numberInput.value);
         const card = `${el.Color.slice(0,1).toLowerCase()}${convertNumber(el.Value)}`;
         img.src = `${baseUrl}${card}.png`;
+        //img.src = `${baseUrl}$colorInput.value.slice(0,1).toLowercase()}${Number(numberInput.value)}.png`;
         li.appendChild(img);
         ul.appendChild(li);
     })
   
 
-    document.querySelector("#cards ul").appendChild(li);
+    //document.querySelector("#cards ul").appendChild(li);
     //slice(0.1).towLowercase auch möglich
 });
 
+/*
 function makeCardFromInput(color, number){
     let result;
     switch (color){
@@ -81,6 +84,7 @@ function makeCardFromInput(color, number){
         }
     return result + number;
 }
+*/
 function convertNumber(cardValue){
     if(cardValue <10){
         return cardValue;
